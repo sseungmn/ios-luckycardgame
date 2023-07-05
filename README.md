@@ -10,9 +10,16 @@ iOS 학습 프로젝트 #1
 
 * [x] [계획] 프로젝트 주간 계획 작성 (1h)
 
-* [ ] [구현] 프로젝트 생성 및 요구사항에 따른 설정 (10m)
-* [ ] [구현] 각 뷰의 Frame 계산하기 (20m)
-* [ ] [구현] 요구사항에 맞는 View 만들기 (20m)
+* [x] [구현] 프로젝트 생성 및 요구사항에 따른 설정 (10m) - 20230704_1416
+* [x] [구현] 각 뷰의 Frame 계산하기 (20m) - 20230704_1735
+  * [x] [공부] safeArea에 대해 알아보기 (20m) - 20230704_1514
+* [x] [구현] 요구사항에 맞는 View 만들기 (20m) - 20230704_1735
+
+<details>
+  <summary>스크린샷</summary>
+
+  <img width=250; src="https://github.com/sseungmn/ios-luckycardgame/assets/46219689/39485090-5124-4066-b22c-6c93c7a2ddb7"><img width=250; src="https://github.com/sseungmn/ios-luckycardgame/assets/46219689/3cca6d8e-b6cc-49ff-9cde-26e341f720fd"><img width=250; src="https://github.com/sseungmn/ios-luckycardgame/assets/46219689/6a949508-4b2a-4b16-8e83-f440e4643f31">
+</details>
 
 * [ ] [학습] Info.plist의 목적 및 적용방식에 대한 학습 (30m)
 
