@@ -14,6 +14,10 @@
 		B5138A432A53E1C300FD2BF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5138A412A53E1C300FD2BF3 /* LaunchScreen.storyboard */; };
 		B54A7FF22A55634300945A62 /* CardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FF02A55634300945A62 /* CardDeckView.swift */; };
 		B54A7FF32A55634300945A62 /* CardDeckStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FF12A55634300945A62 /* CardDeckStackView.swift */; };
+		B54A7FF62A556F6C00945A62 /* LuckyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FF52A556F6C00945A62 /* LuckyCard.swift */; };
+		B54A7FF82A55BF3400945A62 /* LuckyCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FF72A55BF3400945A62 /* LuckyCardDeck.swift */; };
+		B54A7FFA2A55C1B800945A62 /* CardDeckProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FF92A55C1B800945A62 /* CardDeckProtocol.swift */; };
+		B54A7FFC2A55C2F300945A62 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FFB2A55C2F300945A62 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		B5138A442A53E1C300FD2BF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B54A7FF02A55634300945A62 /* CardDeckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDeckView.swift; sourceTree = "<group>"; };
 		B54A7FF12A55634300945A62 /* CardDeckStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDeckStackView.swift; sourceTree = "<group>"; };
+		B54A7FF52A556F6C00945A62 /* LuckyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCard.swift; sourceTree = "<group>"; };
+		B54A7FF72A55BF3400945A62 /* LuckyCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardDeck.swift; sourceTree = "<group>"; };
+		B54A7FF92A55C1B800945A62 /* CardDeckProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckProtocol.swift; sourceTree = "<group>"; };
+		B54A7FFB2A55C2F300945A62 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 		B5138A352A53E1C300FD2BF3 /* LuckyCardGame */ = {
 			isa = PBXGroup;
 			children = (
+				B54A7FF42A556F3D00945A62 /* Model */,
 				B54A7FEF2A55634300945A62 /* View */,
 				B5138A362A53E1C300FD2BF3 /* AppDelegate.swift */,
 				B5138A382A53E1C300FD2BF3 /* SceneDelegate.swift */,
@@ -77,6 +86,17 @@
 			);
 			name = View;
 			path = "../../../../../../문서 - MacBook Pro 16 SM/Workspace/Softeer/ios-luckycardgame/LuckyCardGame/LuckyCardGame/View";
+			sourceTree = "<group>";
+		};
+		B54A7FF42A556F3D00945A62 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B54A7FFB2A55C2F300945A62 /* Card.swift */,
+				B54A7FF52A556F6C00945A62 /* LuckyCard.swift */,
+				B54A7FF72A55BF3400945A62 /* LuckyCardDeck.swift */,
+				B54A7FF92A55C1B800945A62 /* CardDeckProtocol.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,8 +170,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5138A3B2A53E1C300FD2BF3 /* GameBoardViewController.swift in Sources */,
+				B54A7FFC2A55C2F300945A62 /* Card.swift in Sources */,
 				B54A7FF32A55634300945A62 /* CardDeckStackView.swift in Sources */,
+				B54A7FF62A556F6C00945A62 /* LuckyCard.swift in Sources */,
 				B5138A372A53E1C300FD2BF3 /* AppDelegate.swift in Sources */,
+				B54A7FFA2A55C1B800945A62 /* CardDeckProtocol.swift in Sources */,
+				B54A7FF82A55BF3400945A62 /* LuckyCardDeck.swift in Sources */,
 				B5138A392A53E1C300FD2BF3 /* SceneDelegate.swift in Sources */,
 				B54A7FF22A55634300945A62 /* CardDeckView.swift in Sources */,
 			);

@@ -7,7 +7,7 @@
 
 import UIKit
 
-fileprivate enum Constant {
+enum Constant {
     static let spacing: CGFloat = 15
     static let inset: CGFloat = 15
     static let cornerRadius: CGFloat = 10
@@ -42,6 +42,9 @@ final class GameBoardViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+
+        let cardDeck = LuckyCardDeck()
+        cardDeck.printAllCards()
     }
 
     override func viewSafeAreaInsetsDidChange() {
