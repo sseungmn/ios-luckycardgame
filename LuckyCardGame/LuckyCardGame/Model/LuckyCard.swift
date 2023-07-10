@@ -20,26 +20,38 @@ import Foundation
  */
 
 final class LuckyCard: Card {
-    enum AnimalType: String, CaseIterable {
+    enum Animal: String, CaseIterable {
         case Dog = "\u{1F436}"
         case Cat = "\u{1F431}"
         case Cow = "\u{1F42E}"
     }
-    enum ValueType: Int, CaseIterable {
-        case one=1, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve
+
+    enum Value: Int, CaseIterable {
+        case one=1
+        case two
+        case three
+        case four
+        case five
+        case six
+        case seven
+        case eight
+        case nine
+        case ten
+        case eleven
+        case twelve
     }
 
-    private var animalType: AnimalType
-    private var valueType: ValueType
+    private let animal: Animal
+    private let value: Value
 
-    init(animalType: AnimalType, valueType: ValueType) {
-        self.animalType = animalType
-        self.valueType = valueType
+    init(animal: Animal, value: Value) {
+        self.animal = animal
+        self.value = value
     }
 }
 
 extension LuckyCard: CustomStringConvertible {
     var description: String {
-        return "\(animalType.rawValue)" + String(format: "%02d", valueType.rawValue)
+        return "\(animal.rawValue)" + String(format: "%02d", value.rawValue)
     }
 }

@@ -16,7 +16,6 @@ import Foundation
  */
 protocol CardDeckProtocol {
     associatedtype CardType: Card
+    
     var cards: [CardType] { get }
-
-    func printAllCards()
 }

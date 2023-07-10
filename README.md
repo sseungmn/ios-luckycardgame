@@ -33,6 +33,7 @@ iOS 학습 프로젝트 #1
 
 * [x] [구현] 럭키 카드 클래스 설계 (20m) - (20m)
   * [x] [검증] 여러가지 상황에서 확장 가능성을 판단 (10m) - (10m)
+* [x] [구현] 럭키 카드 덱 구현 (30m) - (30m)
 
 <details>
   <summary>스크린샷</summary>
@@ -40,16 +41,13 @@ iOS 학습 프로젝트 #1
   <img width="500" alt="image" src="https://github.com/sseungmn/ios-luckycardgame/assets/46219689/62543a2f-07a5-4c57-96b5-014d9b66b332">
 </details>
 
-* [ ] [학습] ViewController에서 Drawing Cycle에 대한 학습 (1h 30m)
-  * constraint가 계산되는 시점과 constraint에서 safeArea가 반영되는 시점에 대한 학습
-
-* [ ] [학습] 접근 제어자 종류 학습 (15m)
-* [ ] [구현] 참가자 구조체 구현 (10m)
-* [ ] [구현] 참가자에 따른 카드 분배 구현 (20m)
-
 ### 7월 6일 (목)
 
-* [ ] [계획] 7월 5일 회고 및 주간 계획 수정 (10m)
+* [x] [계획] 7월 5일 회고 및 주간 계획 수정 (10m)
+
+* [x] [구현] 코드 리뷰 내용 반영 (10m) - (1hr)
+* [ ] [구현] 참가자 구조체 구현 (20m)
+* [ ] [구현] 참가자에 따른 카드 분배 구현 (20m)
 
 * [ ] [구현] segment control 구현 (10m)
 * [ ] [구현] 보드를 관리할 방법에 대한 고민/설계 (1h)
@@ -57,6 +55,8 @@ iOS 학습 프로젝트 #1
 
 * [ ] [학습] struct와 class의 차이점 (메모리 관리 방법, 속성의 변화의 관점에서) (30m)
 * [ ] [학습] iOS의 UIView class에 대한 학습 (1h)
+* [ ] [학습] ViewController에서 Drawing Cycle에 대한 학습 (1h 30m)
+  * constraint가 계산되는 시점과 constraint에서 safeArea가 반영되는 시점에 대한 학습
 
 ### 7월 7일 (금)
 

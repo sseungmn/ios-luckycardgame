@@ -25,25 +25,27 @@ final class CardDeckView: UIView {
         configureUI()
     }
 
-    init(_ caption: String) {
+    init(_ caption: String, _ layoutConstant: LayoutConstant.Type) {
         self.caption = caption
 
         super.init(frame: .zero)
-        configureUI()
+        configureUI(with: layoutConstant)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func configureUI() {
+    private func configureUI(with LayoutConstant: LayoutConstant.Type? = nil) {
+        guard let LayoutConstant = LayoutConstant else { return }
+
         frame.size.height = intrinsicHeight
         backgroundColor = .systemGray5
-        layer.cornerRadius = Constant.cornerRadius
+        layer.cornerRadius = LayoutConstant.cornerRadius
 
         addSubview(captionLabel)
         captionLabel.text = caption
-        captionLabel.frame = CGRect(origin: CGPoint(x: Constant.inset, y: 0),
+        captionLabel.frame = CGRect(origin: CGPoint(x: LayoutConstant.inset, y: 0),
                                     size: CGSize(width: 50, height: intrinsicHeight))
         captionLabel.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }

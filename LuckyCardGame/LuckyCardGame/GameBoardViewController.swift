@@ -7,7 +7,8 @@
 
 import UIKit
 
-enum Constant {
+/// GameBoard와 관련된 View들에 공통된 Constant를 적용하기 위한 enum Type
+fileprivate enum GameBoardLayoutConstant: LayoutConstant {
     static let spacing: CGFloat = 15
     static let inset: CGFloat = 15
     static let cornerRadius: CGFloat = 10
@@ -18,23 +19,23 @@ final class GameBoardViewController: UIViewController {
     private let headerView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemYellow
-        view.layer.cornerRadius = Constant.cornerRadius
+        view.layer.cornerRadius = GameBoardLayoutConstant.cornerRadius
         return view
     }()
 
     private let cardDeckStackView: CardDeckStackView = {
         let cardDeckStackView = CardDeckStackView()
-        cardDeckStackView.spacing = Constant.spacing
+        cardDeckStackView.spacing = GameBoardLayoutConstant.spacing
         cardDeckStackView.backgroundColor = .systemBackground
         return cardDeckStackView
     }()
 
-    private let cardDeckViews = ["A", "B", "C", "E", "F"].map { CardDeckView($0) }
+    private let cardDeckViews = ["A", "B", "C", "E", "F"].map { CardDeckView($0, GameBoardLayoutConstant.self) }
 
     private let bottomView: UIView = {
         let view = UIView()
         view.backgroundColor = .darkGray
-        view.layer.cornerRadius = Constant.cornerRadius
+        view.layer.cornerRadius = GameBoardLayoutConstant.cornerRadius
         return view
     }()
 
@@ -43,8 +44,9 @@ final class GameBoardViewController: UIViewController {
 
         view.backgroundColor = .systemBackground
 
-        let cardDeck = LuckyCardDeck()
-        cardDeck.printAllCards()
+        var cardDeck = LuckyCardDeck()
+        cardDeck.createNewCardDeck()
+        print(cardDeck.cards.map { String(describing: $0) }.joined(separator: ", "))
     }
 
     override func viewSafeAreaInsetsDidChange() {
@@ -80,7 +82,7 @@ final class GameBoardViewController: UIViewController {
         }
 
         let bottomViewHeightMax: CGFloat = 200
-        let bottomViewHeight = min(UIScreen.main.bounds.height - cardDeckStackView.frame.maxY - contentInsets.bottom - Constant.spacing, bottomViewHeightMax)
+        let bottomViewHeight = min(UIScreen.main.bounds.height - cardDeckStackView.frame.maxY - contentInsets.bottom - GameBoardLayoutConstant.spacing, bottomViewHeightMax)
         let bottomViewY = UIScreen.main.bounds.height - contentInsets.bottom - bottomViewHeight
         bottomView.frame = CGRect(origin: CGPoint(x: contentInsets.left,
                                                   y: bottomViewY),

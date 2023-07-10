@@ -18,6 +18,7 @@
 		B54A7FF82A55BF3400945A62 /* LuckyCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FF72A55BF3400945A62 /* LuckyCardDeck.swift */; };
 		B54A7FFA2A55C1B800945A62 /* CardDeckProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FF92A55C1B800945A62 /* CardDeckProtocol.swift */; };
 		B54A7FFC2A55C2F300945A62 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FFB2A55C2F300945A62 /* Card.swift */; };
+		B56234F72A565F6C00CEC8F6 /* LayoutConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56234F62A565F6C00CEC8F6 /* LayoutConstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B54A7FF72A55BF3400945A62 /* LuckyCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardDeck.swift; sourceTree = "<group>"; };
 		B54A7FF92A55C1B800945A62 /* CardDeckProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckProtocol.swift; sourceTree = "<group>"; };
 		B54A7FFB2A55C2F300945A62 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		B56234F62A565F6C00CEC8F6 /* LayoutConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LayoutConstant.swift; path = LuckyCardGame/View/LayoutConstant.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		B54A7FEF2A55634300945A62 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B56234F62A565F6C00CEC8F6 /* LayoutConstant.swift */,
 				B54A7FF02A55634300945A62 /* CardDeckView.swift */,
 				B54A7FF12A55634300945A62 /* CardDeckStackView.swift */,
 			);
@@ -172,6 +175,7 @@
 				B5138A3B2A53E1C300FD2BF3 /* GameBoardViewController.swift in Sources */,
 				B54A7FFC2A55C2F300945A62 /* Card.swift in Sources */,
 				B54A7FF32A55634300945A62 /* CardDeckStackView.swift in Sources */,
+				B56234F72A565F6C00CEC8F6 /* LayoutConstant.swift in Sources */,
 				B54A7FF62A556F6C00945A62 /* LuckyCard.swift in Sources */,
 				B5138A372A53E1C300FD2BF3 /* AppDelegate.swift in Sources */,
 				B54A7FFA2A55C1B800945A62 /* CardDeckProtocol.swift in Sources */,

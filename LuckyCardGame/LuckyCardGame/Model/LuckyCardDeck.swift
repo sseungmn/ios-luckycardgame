@@ -16,17 +16,14 @@ import Foundation
 struct LuckyCardDeck: CardDeckProtocol {
     typealias CardType = LuckyCard
 
-    var cards: [LuckyCard]
+    var cards: [LuckyCard] { _cards }
+    private var _cards: [LuckyCard] = []
 
-    init() {
-        cards = LuckyCard.AnimalType.allCases.flatMap { animalType in
-            LuckyCard.ValueType.allCases.map { valueType in
-                return LuckyCard(animalType: animalType, valueType: valueType)
+    mutating func createNewCardDeck() {
+        _cards = LuckyCard.Animal.allCases.flatMap { animal in
+            LuckyCard.Value.allCases.map { value in
+                return LuckyCard(animal: animal, value: value)
             }
         }.shuffled()
-    }
-
-    func printAllCards() {
-        print(cards.map { String(describing: $0) }.joined(separator: " ,"))
     }
 }
