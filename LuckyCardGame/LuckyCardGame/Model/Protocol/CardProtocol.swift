@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CardProtocol: CustomStringConvertible {
+protocol CardProtocol: CustomStringConvertible, Comparable {
     var isFront: Bool { get set }
 }

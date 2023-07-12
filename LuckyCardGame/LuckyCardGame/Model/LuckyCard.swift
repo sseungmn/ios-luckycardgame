@@ -26,7 +26,7 @@ final class LuckyCard: CardProtocol {
         case Cow = "\u{1F42E}"
     }
 
-    enum Value: Int, CaseIterable {
+    enum Number: Int, CaseIterable {
         case one=1
         case two
         case three
@@ -42,17 +42,29 @@ final class LuckyCard: CardProtocol {
     }
 
     private let animal: Animal
-    private let value: Value
+    private let number: Number
     var isFront: Bool = false
 
-    init(animal: Animal, value: Value) {
+    init(animal: Animal, number: Number) {
         self.animal = animal
-        self.value = value
+        self.number = number
     }
 }
 
-extension LuckyCard: CustomStringConvertible {
+// MARK: CustomStringConvertible
+extension LuckyCard {
     var description: String {
-        return "\(animal.rawValue)" + String(format: "%02d", value.rawValue)
+        return "\(animal.rawValue)" + String(format: "%02d", number.rawValue)
+    }
+}
+
+// MARK: Comparable & Equable
+extension LuckyCard {
+    static func < (lhs: LuckyCard, rhs: LuckyCard) -> Bool {
+        return lhs.number.rawValue < rhs.number.rawValue
+    }
+
+    static func == (lhs: LuckyCard, rhs: LuckyCard) -> Bool {
+        return lhs.number == rhs.number && lhs.animal == rhs.animal
     }
 }
