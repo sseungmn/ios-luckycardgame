@@ -1,5 +1,5 @@
 //
-//  LuckyCardGameTests.swift
+//  GameInitTests.swift
 //  LuckyCardGameTests
 //
 //  Created by SEUNGMIN OH on 2023/07/12.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import LuckyCardGame
 
-final class LuckyCardGameTests: XCTestCase {
+final class GameInitTests: XCTestCase {
 
     var game: LuckyCardGame!
     var gameOption: LuckyCardGame.Option!
