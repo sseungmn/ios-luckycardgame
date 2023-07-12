@@ -21,10 +21,14 @@ class LuckyCardDeck: CardDeckProtocol {
 
     func createShuffledCardDeck() {
         cards = LuckyCard.Animal.allCases.flatMap { animal in
-            LuckyCard.Value.allCases.map { value in
-                return LuckyCard(animal: animal, value: value)
+            LuckyCard.Number.allCases.map { number in
+                return LuckyCard(animal: animal, number: number)
             }
         }.shuffled()
+    }
+
+    func sortCard(by areInIncreasingOrder: (LuckyCard, LuckyCard) -> Bool) {
+        cards.sort(by: areInIncreasingOrder)
     }
 
     func filterCard(_ isIncluded: (LuckyCard) -> Bool) {

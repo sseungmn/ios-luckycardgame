@@ -49,4 +49,14 @@ struct LuckyCardGame: CardGameProtocol {
             playersDeck[index].pushCards(cards)
         }
     }
+
+    func sortPlayersDeck() {
+        for playerDeck in playersDeck {
+            playerDeck.sortCard(by: <)
+        }
+    }
+
+    func sortDealerDeck() {
+        dealerDeck.sortCard(by: <)
+    }
 }
