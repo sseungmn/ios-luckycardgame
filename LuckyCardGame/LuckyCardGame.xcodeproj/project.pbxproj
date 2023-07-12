@@ -21,6 +21,7 @@
 		B54A7FF82A55BF3400945A62 /* LuckyCardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FF72A55BF3400945A62 /* LuckyCardDeck.swift */; };
 		B54A7FFA2A55C1B800945A62 /* CardDeckProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FF92A55C1B800945A62 /* CardDeckProtocol.swift */; };
 		B54A7FFC2A55C2F300945A62 /* CardProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A7FFB2A55C2F300945A62 /* CardProtocol.swift */; };
+		B5539BCC2A5EE07A00F1FE7F /* LuckyCardGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5539BCB2A5EE07A00F1FE7F /* LuckyCardGameTests.swift */; };
 		B56234FB2A57000C00CEC8F6 /* LuckyCardGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56234FA2A57000C00CEC8F6 /* LuckyCardGame.swift */; };
 		B5AEF2282A5BC8C2005436CC /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AEF2272A5BC8C2005436CC /* CardView.swift */; };
 		B5AEF22A2A5CD863005436CC /* String+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AEF2292A5CD863005436CC /* String+UIImage.swift */; };
@@ -28,6 +29,16 @@
 		B5AEF22E2A5D9577005436CC /* CardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AEF22D2A5D9577005436CC /* CardDeckView.swift */; };
 		B5AEF2302A5D95CE005436CC /* CardDeckStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AEF22F2A5D95CE005436CC /* CardDeckStackView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B5539BCD2A5EE07A00F1FE7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5138A2B2A53E1C300FD2BF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5138A322A53E1C300FD2BF3;
+			remoteInfo = LuckyCardGame;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B5138A332A53E1C300FD2BF3 /* LuckyCardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LuckyCardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +57,8 @@
 		B54A7FF72A55BF3400945A62 /* LuckyCardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardDeck.swift; sourceTree = "<group>"; };
 		B54A7FF92A55C1B800945A62 /* CardDeckProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckProtocol.swift; sourceTree = "<group>"; };
 		B54A7FFB2A55C2F300945A62 /* CardProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardProtocol.swift; sourceTree = "<group>"; };
+		B5539BC92A5EE07A00F1FE7F /* LuckyCardGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LuckyCardGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5539BCB2A5EE07A00F1FE7F /* LuckyCardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardGameTests.swift; sourceTree = "<group>"; };
 		B56234FA2A57000C00CEC8F6 /* LuckyCardGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuckyCardGame.swift; sourceTree = "<group>"; };
 		B5AEF2272A5BC8C2005436CC /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardView.swift; path = LuckyCardGame/View/CardView.swift; sourceTree = SOURCE_ROOT; };
 		B5AEF2292A5CD863005436CC /* String+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UIImage.swift"; sourceTree = "<group>"; };
@@ -62,6 +75,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5539BC62A5EE07A00F1FE7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				B5138A352A53E1C300FD2BF3 /* LuckyCardGame */,
+				B5539BCA2A5EE07A00F1FE7F /* LuckyCardGameTests */,
 				B5138A342A53E1C300FD2BF3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B5138A332A53E1C300FD2BF3 /* LuckyCardGame.app */,
+				B5539BC92A5EE07A00F1FE7F /* LuckyCardGameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,6 +153,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B5539BCA2A5EE07A00F1FE7F /* LuckyCardGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				B5539BCB2A5EE07A00F1FE7F /* LuckyCardGameTests.swift */,
+			);
+			path = LuckyCardGameTests;
+			sourceTree = "<group>";
+		};
 		B5AEF2312A5DC491005436CC /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +200,24 @@
 			productReference = B5138A332A53E1C300FD2BF3 /* LuckyCardGame.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B5539BC82A5EE07A00F1FE7F /* LuckyCardGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5539BD12A5EE07A00F1FE7F /* Build configuration list for PBXNativeTarget "LuckyCardGameTests" */;
+			buildPhases = (
+				B5539BC52A5EE07A00F1FE7F /* Sources */,
+				B5539BC62A5EE07A00F1FE7F /* Frameworks */,
+				B5539BC72A5EE07A00F1FE7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5539BCE2A5EE07A00F1FE7F /* PBXTargetDependency */,
+			);
+			name = LuckyCardGameTests;
+			productName = LuckyCardGameTests;
+			productReference = B5539BC92A5EE07A00F1FE7F /* LuckyCardGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -182,6 +230,10 @@
 				TargetAttributes = {
 					B5138A322A53E1C300FD2BF3 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					B5539BC82A5EE07A00F1FE7F = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = B5138A322A53E1C300FD2BF3;
 					};
 				};
 			};
@@ -199,6 +251,7 @@
 			projectRoot = "";
 			targets = (
 				B5138A322A53E1C300FD2BF3 /* LuckyCardGame */,
+				B5539BC82A5EE07A00F1FE7F /* LuckyCardGameTests */,
 			);
 		};
 /* End PBXProject section */
@@ -210,6 +263,13 @@
 			files = (
 				B5138A432A53E1C300FD2BF3 /* LaunchScreen.storyboard in Resources */,
 				B5138A402A53E1C300FD2BF3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5539BC72A5EE07A00F1FE7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +301,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5539BC52A5EE07A00F1FE7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5539BCC2A5EE07A00F1FE7F /* LuckyCardGameTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B5539BCE2A5EE07A00F1FE7F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5138A322A53E1C300FD2BF3 /* LuckyCardGame */;
+			targetProxy = B5539BCD2A5EE07A00F1FE7F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B5138A412A53E1C300FD2BF3 /* LaunchScreen.storyboard */ = {
@@ -438,6 +514,52 @@
 			};
 			name = Release;
 		};
+		B5539BCF2A5EE07A00F1FE7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AVZ9493N69;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.minios.LuckyCardGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LuckyCardGame.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LuckyCardGame";
+			};
+			name = Debug;
+		};
+		B5539BD02A5EE07A00F1FE7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AVZ9493N69;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.minios.LuckyCardGameTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LuckyCardGame.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LuckyCardGame";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -455,6 +577,15 @@
 			buildConfigurations = (
 				B5138A482A53E1C300FD2BF3 /* Debug */,
 				B5138A492A53E1C300FD2BF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5539BD12A5EE07A00F1FE7F /* Build configuration list for PBXNativeTarget "LuckyCardGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5539BCF2A5EE07A00F1FE7F /* Debug */,
+				B5539BD02A5EE07A00F1FE7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
