@@ -30,9 +30,9 @@ final class GameBoardViewController: UIViewController {
     }
     
     func initGameAll() {
-        [3, 4, 5].forEach { playerNumber in
-            var game = LuckyCardGame()
-            game.initGame(playerNumber: playerNumber)
+        LuckyCardGame.Option.PlayerCount.allCases.forEach { playerCount in
+            let option = LuckyCardGame.Option(playerCount: playerCount)
+            let game = LuckyCardGame(option: option)
             games.append(game)
         }
         gameView.initGame(with: games)

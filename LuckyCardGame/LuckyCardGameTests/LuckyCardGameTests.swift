@@ -11,25 +11,26 @@ import XCTest
 final class LuckyCardGameTests: XCTestCase {
 
     var game: LuckyCardGame!
-    var playerCount: Int!
+    var gameOption: LuckyCardGame.Option!
 
     override func setUpWithError() throws {
-        game = LuckyCardGame()
     }
 
     override func tearDownWithError() throws {
         game = nil
+        gameOption = nil
     }
 
-    func test_WhenPlayerNumberIs3() throws {
+    func testInitiateGame_WhenPlayerNumberIs3() throws {
         // given
-        playerCount = 3
+        gameOption = .init(playerCount: .three)
 
         // when
-        game.initGame(playerNumber: playerCount)
+        game = LuckyCardGame(option: gameOption)
 
         // then
-        XCTAssertEqual(game.dealerDeck.cards.count, 9)
+        XCTAssertEqual(gameOption.playerCount.dealerCardCount, 9)
+        XCTAssertEqual(game.dealerDeck.cards.count, gameOption.playerCount.dealerCardCount)
 
         XCTAssertFalse(game.playersDeck.allSatisfy({ playerDeck in
             playerDeck.cards.contains(where: { card in
@@ -37,45 +38,52 @@ final class LuckyCardGameTests: XCTestCase {
             })
         }))
 
-        XCTAssertEqual(game.playersDeck.count, playerCount)
-        XCTAssertEqual(game.playersDeck[0].cards.count, 8)
-        XCTAssertEqual(game.playersDeck[1].cards.count, 8)
-        XCTAssertEqual(game.playersDeck[2].cards.count, 8)
+        XCTAssertEqual(game.playersDeck.count, gameOption.playerCount.rawValue)
+        XCTAssertEqual(gameOption.playerCount.playerCardCount, 8)
 
+        XCTAssertEqual(game.playersDeck[0].cards.count, gameOption.playerCount.playerCardCount)
+        XCTAssertEqual(game.playersDeck[1].cards.count, gameOption.playerCount.playerCardCount)
+        XCTAssertEqual(game.playersDeck[2].cards.count, gameOption.playerCount.playerCardCount)
     }
 
     func testInitiateGame_WhenPlayerNumberIs4() throws {
         // given
-        playerCount = 4
+        gameOption = .init(playerCount: .four)
 
         // when
-        game.initGame(playerNumber: playerCount)
+        game = LuckyCardGame(option: gameOption)
 
         // then
-        XCTAssertEqual(game.dealerDeck.cards.count, 8)
+        XCTAssertEqual(gameOption.playerCount.dealerCardCount, 8)
+        XCTAssertEqual(game.dealerDeck.cards.count, gameOption.playerCount.dealerCardCount)
 
-        XCTAssertEqual(game.playersDeck.count, playerCount)
-        XCTAssertEqual(game.playersDeck[0].cards.count, 7)
-        XCTAssertEqual(game.playersDeck[1].cards.count, 7)
-        XCTAssertEqual(game.playersDeck[2].cards.count, 7)
-        XCTAssertEqual(game.playersDeck[3].cards.count, 7)
+        XCTAssertEqual(game.playersDeck.count, gameOption.playerCount.rawValue)
+        XCTAssertEqual(gameOption.playerCount.playerCardCount, 7)
+
+        XCTAssertEqual(game.playersDeck[0].cards.count, gameOption.playerCount.playerCardCount)
+        XCTAssertEqual(game.playersDeck[1].cards.count, gameOption.playerCount.playerCardCount)
+        XCTAssertEqual(game.playersDeck[2].cards.count, gameOption.playerCount.playerCardCount)
+        XCTAssertEqual(game.playersDeck[3].cards.count, gameOption.playerCount.playerCardCount)
     }
 
     func testInitiateGame_WhenPlayerNumberIs5() throws {
         // given
-        playerCount = 5
+        gameOption = .init(playerCount: .five)
 
         // when
-        game.initGame(playerNumber: playerCount)
+        game = LuckyCardGame(option: gameOption)
 
-        XCTAssertEqual(game.dealerDeck.cards.count, 6)
+        // then
+        XCTAssertEqual(gameOption.playerCount.dealerCardCount, 6)
+        XCTAssertEqual(game.dealerDeck.cards.count, gameOption.playerCount.dealerCardCount)
 
-        XCTAssertEqual(game.playersDeck.count, playerCount)
-        XCTAssertEqual(game.playersDeck[0].cards.count, 6)
-        XCTAssertEqual(game.playersDeck[1].cards.count, 6)
-        XCTAssertEqual(game.playersDeck[2].cards.count, 6)
-        XCTAssertEqual(game.playersDeck[3].cards.count, 6)
-        XCTAssertEqual(game.playersDeck[4].cards.count, 6)
+        XCTAssertEqual(game.playersDeck.count, gameOption.playerCount.rawValue)
+        XCTAssertEqual(gameOption.playerCount.playerCardCount, 6)
+
+        XCTAssertEqual(game.playersDeck[0].cards.count, gameOption.playerCount.playerCardCount)
+        XCTAssertEqual(game.playersDeck[1].cards.count, gameOption.playerCount.playerCardCount)
+        XCTAssertEqual(game.playersDeck[2].cards.count, gameOption.playerCount.playerCardCount)
+        XCTAssertEqual(game.playersDeck[3].cards.count, gameOption.playerCount.playerCardCount)
+        XCTAssertEqual(game.playersDeck[4].cards.count, gameOption.playerCount.playerCardCount)
     }
-
 }
