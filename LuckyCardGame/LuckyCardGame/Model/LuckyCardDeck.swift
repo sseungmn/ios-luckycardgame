@@ -16,11 +16,10 @@ import Foundation
 struct LuckyCardDeck: CardDeckProtocol {
     typealias CardType = LuckyCard
 
-    var cards: [LuckyCard] { _cards }
-    private var _cards: [LuckyCard] = []
+    private(set) var cards: [LuckyCard] = []
 
     mutating func createShuffledCardDeck() {
-        _cards = LuckyCard.Animal.allCases.flatMap { animal in
+        cards = LuckyCard.Animal.allCases.flatMap { animal in
             LuckyCard.Value.allCases.map { value in
                 return LuckyCard(animal: animal, value: value)
             }
@@ -28,28 +27,28 @@ struct LuckyCardDeck: CardDeckProtocol {
     }
 
     mutating func filterCard(_ isIncluded: (LuckyCard) -> Bool) {
-        _cards = _cards.filter(isIncluded)
+        cards = cards.filter(isIncluded)
     }
 
     mutating func popLastCard() -> LuckyCard? {
-        return _cards.popLast()
+        return cards.popLast()
     }
 
     mutating func popCards(number: Int) -> [LuckyCard]? {
         guard cards.count >= number else { return nil }
         var newCards = [LuckyCard]()
         for _ in 0..<number {
-            guard let card = _cards.popLast() else { fatalError("Undefined behavior") }
+            guard let card = cards.popLast() else { fatalError("Undefined behavior") }
             newCards.append(card)
         }
         return newCards
     }
 
-    mutating func pushNewCard(_ card: LuckyCard) {
-        _cards.append(card)
+    mutating func pushNewCard(_ newCard: LuckyCard) {
+        cards.append(newCard)
     }
 
-    mutating func pushCards(_ cards: [LuckyCard]) {
-        _cards.append(contentsOf: cards)
+    mutating func pushCards(_ newCards: [LuckyCard]) {
+        cards.append(contentsOf: newCards)
     }
 }
