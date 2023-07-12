@@ -55,7 +55,7 @@ final class CardView: LuckyCardGameBaseView {
 
 // MARK: View API
 extension CardView {
-    func initCardFront(with card: CardProtocol) {
+    func initCardFront(with card: any CardProtocol) {
         if let frontCenterImage = String(card.description.prefix(1)).image(),
            let frontTextImage = String(card.description.suffix(2)).image() {
             frontCenterImageLayer.contents = frontCenterImage.cgImage
