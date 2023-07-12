@@ -34,10 +34,6 @@ final class GameBoardViewController: UIViewController {
             var game = LuckyCardGame()
             game.initGame(playerNumber: playerNumber)
             games.append(game)
-            print("dealer(\(game.dealerDeck.cards.count)):", game.dealerDeck.cards.map { String(describing: $0) }.joined(separator: ", "))
-            for i in 0..<playerNumber {
-                print("player\(i)(\(game.playersDeck[i].cards.count)):", game.playersDeck[i].cards.map { String(describing: $0) }.joined(separator: ", "))
-            }
         }
         gameView.initGame(with: games)
     }
