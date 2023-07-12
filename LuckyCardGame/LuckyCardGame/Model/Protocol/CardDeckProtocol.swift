@@ -15,7 +15,7 @@ import Foundation
     모든 CardType에 대해 출력을 구현하기 위해서, 아주 가벼운 Card Protocol을 만들게 되었습니다.
  */
 protocol CardDeckProtocol {
-    associatedtype CardType: Card
+    associatedtype CardType: CardProtocol
     
     var cards: [CardType] { get }
 }

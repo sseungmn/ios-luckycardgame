@@ -7,8 +7,7 @@
 
 import UIKit
 
-final class CardDeckView: UIView {
-    private let intrinsicHeight: CGFloat = 100
+final class CardDeckView: LuckyCardGameBaseView {
     private let caption: String
 
     private let captionLabel: UILabel = {
@@ -18,35 +17,77 @@ final class CardDeckView: UIView {
         return label
     }()
 
-    init(_ frame: CGRect) {
-        self.caption = ""
+    private var spacing: CGFloat = 0
+
+    private var cardViews = [CardView]()
+
+    init(frame: CGRect, caption: String) {
+        self.caption = caption
 
         super.init(frame: frame)
         configureUI()
     }
 
-    init(_ caption: String, _ layoutConstant: LayoutConstant.Type) {
-        self.caption = caption
-
-        super.init(frame: .zero)
-        configureUI(with: layoutConstant)
+    convenience init(caption: String) {
+        self.init(frame: .zero, caption: caption)
     }
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.caption = ""
+        
+        super.init(coder: coder)
+        configureUI()
     }
 
-    private func configureUI(with LayoutConstant: LayoutConstant.Type? = nil) {
-        guard let LayoutConstant = LayoutConstant else { return }
+    override func configureUI() {
+        super.configureUI()
 
-        frame.size.height = intrinsicHeight
         backgroundColor = .systemGray5
-        layer.cornerRadius = LayoutConstant.cornerRadius
+        layer.cornerRadius = Constant.View.cornerRadius
+
+        captionLabel.text = caption
 
         addSubview(captionLabel)
-        captionLabel.text = caption
-        captionLabel.frame = CGRect(origin: CGPoint(x: LayoutConstant.inset, y: 0),
-                                    size: CGSize(width: 50, height: intrinsicHeight))
-        captionLabel.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    }
+
+    override func configureLayout() {
+        super.configureLayout()
+
+        let contentFrame = bounds.applied(insets: Constant.Layout.cardDeckInsets)
+        
+        captionLabel.frame = CGRect(origin: contentFrame.origin,
+                                    size: CGSize(width: 50, height: contentFrame.height))
+
+        layoutCards()
+    }
+
+    private func layoutCards() {
+        let contentFrame = bounds.applied(insets: Constant.Layout.cardDeckInsets)
+
+        spacing = (contentFrame.width - Constant.Layout.cardSize.width * CGFloat(cardViews.count)) / (CGFloat(cardViews.count) - 1)
+
+        var origin = contentFrame.origin
+        for cardView in cardViews {
+            guard cardView.isHidden == false else { continue }
+
+            cardView.frame = CGRect(origin: origin, size: Constant.Layout.cardSize)
+            cardView.configureLayout()
+
+            origin.x += (Constant.Layout.cardSize.width + spacing)
+        }
+    }
+}
+
+// MARK: - View API
+extension CardDeckView {
+    func initCards(with cards: [LuckyCard]) {
+        for card in cards {
+            let cardView = CardView()
+            cardView.initCardFront(with: card)
+            cardViews.append(cardView)
+            addSubview(cardView)
+        }
+        
+        layoutCards()
     }
 }

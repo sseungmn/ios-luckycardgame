@@ -7,4 +7,6 @@
 
 import Foundation
 
-protocol Card: CustomStringConvertible { }
+protocol CardProtocol: CustomStringConvertible {
+    var isFront: Bool { get set }
+}

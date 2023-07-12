@@ -7,26 +7,37 @@
 
 import UIKit
 
-final class CardDeckStackView: UIView {
-
-    private var count: Int { subviews.count }
+final class CardDeckStackView: LuckyCardGameBaseView {
+    var arrangedSubviews = [CardDeckView]()
 
     var spacing: CGFloat = 0
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
+    override func configureLayout() {
+        super.configureLayout()
+        
+        let contentFrame = bounds
+        var origin = contentFrame.origin
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+        for i in arrangedSubviews.indices {
+            let subView = arrangedSubviews[i]
+            guard subView.isHidden == false else { continue }
 
+            subView.frame = CGRect(origin: origin,
+                                   size: Constant.Layout.cardDeckSize)
+            subView.configureLayout()
+
+            if i + 1 < arrangedSubviews.count {
+                origin.y = subView.frame.maxY + Constant.Layout.spacing
+            }
+            frame.size.height = subView.frame.maxY
+        }
+    }
+}
+
+// MAKR: - View API
+extension CardDeckStackView {
     func addArrangedSubView(_ subView: CardDeckView) {
-        let y: CGFloat = count > 0 ? frame.size.height + spacing : 0
-
-        subView.frame.origin = CGPoint(x: 0, y: y)
-        frame.size.height = subView.frame.maxY
-
+        arrangedSubviews.append(subView)
         addSubview(subView)
     }
 }

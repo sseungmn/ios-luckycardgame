@@ -19,7 +19,7 @@ import Foundation
  하지만, 꼭 필요하지 않을 경우에 dynamism을 구현하는 것은 쓸데없는 비용을 지불하는 것이라는 이야기를 WWDC 15, Protocol Oriented Programming에서 들었고, 공감하기 때문에 구현하지 않았습니다.
  */
 
-final class LuckyCard: Card {
+final class LuckyCard: CardProtocol {
     enum Animal: String, CaseIterable {
         case Dog = "\u{1F436}"
         case Cat = "\u{1F431}"
@@ -43,6 +43,7 @@ final class LuckyCard: Card {
 
     private let animal: Animal
     private let value: Value
+    var isFront: Bool = false
 
     init(animal: Animal, value: Value) {
         self.animal = animal

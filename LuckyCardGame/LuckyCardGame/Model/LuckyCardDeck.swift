@@ -19,11 +19,37 @@ struct LuckyCardDeck: CardDeckProtocol {
     var cards: [LuckyCard] { _cards }
     private var _cards: [LuckyCard] = []
 
-    mutating func createNewCardDeck() {
+    mutating func createShuffledCardDeck() {
         _cards = LuckyCard.Animal.allCases.flatMap { animal in
             LuckyCard.Value.allCases.map { value in
                 return LuckyCard(animal: animal, value: value)
             }
         }.shuffled()
+    }
+
+    mutating func filterCard(_ isIncluded: (LuckyCard) -> Bool) {
+        _cards = _cards.filter(isIncluded)
+    }
+
+    mutating func popLastCard() -> LuckyCard? {
+        return _cards.popLast()
+    }
+
+    mutating func popCards(number: Int) -> [LuckyCard]? {
+        guard cards.count >= number else { return nil }
+        var newCards = [LuckyCard]()
+        for _ in 0..<number {
+            guard let card = _cards.popLast() else { fatalError("Undefined behavior") }
+            newCards.append(card)
+        }
+        return newCards
+    }
+
+    mutating func pushNewCard(_ card: LuckyCard) {
+        _cards.append(card)
+    }
+
+    mutating func pushCards(_ cards: [LuckyCard]) {
+        _cards.append(contentsOf: cards)
     }
 }

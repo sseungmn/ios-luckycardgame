@@ -7,86 +7,50 @@
 
 import UIKit
 
-/// GameBoard와 관련된 View들에 공통된 Constant를 적용하기 위한 enum Type
-fileprivate enum GameBoardLayoutConstant: LayoutConstant {
-    static let spacing: CGFloat = 15
-    static let inset: CGFloat = 15
-    static let cornerRadius: CGFloat = 10
-}
-
 final class GameBoardViewController: UIViewController {
-
-    private let headerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemYellow
-        view.layer.cornerRadius = GameBoardLayoutConstant.cornerRadius
+    var gameView: GameView {
+        guard let view = view as? GameView else { return GameView(frame: .zero) }
+        view.addTargetToSegmentedControl(self, #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
         return view
-    }()
-
-    private let cardDeckStackView: CardDeckStackView = {
-        let cardDeckStackView = CardDeckStackView()
-        cardDeckStackView.spacing = GameBoardLayoutConstant.spacing
-        cardDeckStackView.backgroundColor = .systemBackground
-        return cardDeckStackView
-    }()
-
-    private let cardDeckViews = ["A", "B", "C", "E", "F"].map { CardDeckView($0, GameBoardLayoutConstant.self) }
-
-    private let bottomView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .darkGray
-        view.layer.cornerRadius = GameBoardLayoutConstant.cornerRadius
-        return view
-    }()
-
+    }
+    
+    var games = [LuckyCardGame]()
+    
+    override func loadView() {
+        super.loadView()
+        view = GameView(frame: .zero)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .systemBackground
-
-        var cardDeck = LuckyCardDeck()
-        cardDeck.createNewCardDeck()
-        print(cardDeck.cards.map { String(describing: $0) }.joined(separator: ", "))
+        
+        initGameAll()
     }
-
+    
+    func initGameAll() {
+        [3, 4, 5].forEach { playerNumber in
+            var game = LuckyCardGame()
+            game.initGame(playerNumber: playerNumber)
+            games.append(game)
+            print("dealer(\(game.dealerDeck.cards.count)):", game.dealerDeck.cards.map { String(describing: $0) }.joined(separator: ", "))
+            for i in 0..<playerNumber {
+                print("player\(i)(\(game.playersDeck[i].cards.count)):", game.playersDeck[i].cards.map { String(describing: $0) }.joined(separator: ", "))
+            }
+        }
+        gameView.initGame(with: games)
+    }
+    
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
-        layoutContents()
+        gameView.configureLayout()
     }
+}
 
-    private func layoutContents() {
-        view.addSubview(headerView)
-        view.addSubview(cardDeckStackView)
-        view.addSubview(bottomView)
-
-        let contentInsets = UIEdgeInsets(top: view.safeAreaInsets.top + 15,
-                                         left: view.safeAreaInsets.left + 20,
-                                         bottom: view.safeAreaInsets.bottom + 15,
-                                         right: view.safeAreaInsets.right + 20)
-        let contentWidth = UIScreen.main.bounds.width - contentInsets.left - contentInsets.right
-        let spacing: CGFloat = 15
-
-        headerView.frame = CGRect(origin: CGPoint(x: contentInsets.left,
-                                                  y: contentInsets.top),
-                                  size: CGSize(width: contentWidth,
-                                               height: 44))
-
-        let cardDeckStackViewY = headerView.frame.maxY + spacing
-        cardDeckStackView.frame = CGRect(origin: CGPoint(x: contentInsets.left, y: cardDeckStackViewY),
-                                        size: CGSize(width: contentWidth, height: 0))
-
-
-        cardDeckViews.forEach { cardDeckView in
-            cardDeckView.bounds.size.width = contentWidth
-            cardDeckStackView.addArrangedSubView(cardDeckView)
-        }
-
-        let bottomViewHeightMax: CGFloat = 200
-        let bottomViewHeight = min(UIScreen.main.bounds.height - cardDeckStackView.frame.maxY - contentInsets.bottom - GameBoardLayoutConstant.spacing, bottomViewHeightMax)
-        let bottomViewY = UIScreen.main.bounds.height - contentInsets.bottom - bottomViewHeight
-        bottomView.frame = CGRect(origin: CGPoint(x: contentInsets.left,
-                                                  y: bottomViewY),
-                                  size: CGSize(width: contentWidth,
-                                               height: bottomViewHeight))
+extension GameBoardViewController {
+    @objc
+    func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        gameView.selectGameBoard(sender.selectedSegmentIndex)
     }
 }
