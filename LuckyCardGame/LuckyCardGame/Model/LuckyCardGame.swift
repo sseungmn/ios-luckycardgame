@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LuckyCardGame {
+struct LuckyCardGame: CardGameProtocol {
     struct Option {
         var playerCount: PlayerCount
 
@@ -32,7 +32,7 @@ struct LuckyCardGame {
                 }
             }
         }
-        }
+    }
 
     private(set) var dealerDeck = LuckyCardDeck()
     private(set) var playersDeck = [LuckyCardDeck]() // index == 0: 자신의 카드, index > 0: 다른 플레이어 카드

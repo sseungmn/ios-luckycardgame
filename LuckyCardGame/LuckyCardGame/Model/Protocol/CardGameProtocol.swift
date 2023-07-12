@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+protocol CardGameProtocol {
+    associatedtype Option
+    associatedtype CardDeck
+
+    var dealerDeck: CardDeck { get }
+    var playersDeck: [CardDeck] { get }
+
+    init(option: Option)
+}
