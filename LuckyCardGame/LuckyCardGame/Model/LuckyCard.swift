@@ -65,6 +65,6 @@ extension LuckyCard {
     }
 
     static func == (lhs: LuckyCard, rhs: LuckyCard) -> Bool {
-        return lhs.number == rhs.number && lhs.animal == rhs.animal
+        return lhs.number == rhs.number
     }
 }
