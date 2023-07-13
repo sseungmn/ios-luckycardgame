@@ -39,24 +39,24 @@ struct LuckyCardGame: CardGameProtocol {
 
     init(option: Option) {
         for _ in 0..<option.playerCount.rawValue { playersDeck.append(LuckyCardDeck()) }
-        dealerDeck.createShuffledCardDeck()
+        dealerDeck.createShuffledDeck()
 
-        if option.playerCount == .three { dealerDeck.filterCard({ !$0.description.hasSuffix("12") })}
+        if option.playerCount == .three { dealerDeck.filter({ !$0.description.hasSuffix("12") }) }
         for index in 0..<option.playerCount.rawValue {
             guard let cards = dealerDeck.popCards(number: option.playerCount.playerCardCount) else { fatalError("잘못된 카드 분배입니다.") }
 
             if index == 0 { cards.forEach { $0.isFront = true } }
-            playersDeck[index].pushCards(cards)
+            playersDeck[index].push(newCards: cards)
         }
     }
 
     func sortPlayersDeck() {
         for playerDeck in playersDeck {
-            playerDeck.sortCard(by: <)
+            playerDeck.sort(by: <)
         }
     }
 
     func sortDealerDeck() {
-        dealerDeck.sortCard(by: <)
+        dealerDeck.sort(by: <)
     }
 }

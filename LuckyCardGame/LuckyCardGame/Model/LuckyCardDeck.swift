@@ -16,29 +16,24 @@ import Foundation
  */
 class LuckyCardDeck: CardDeckProtocol {
     typealias CardType = LuckyCard
-
+    
     private(set) var cards: [LuckyCard] = []
+}
 
-    func createShuffledCardDeck() {
-        cards = LuckyCard.Animal.allCases.flatMap { animal in
-            LuckyCard.Number.allCases.map { number in
-                return LuckyCard(animal: animal, number: number)
-            }
-        }.shuffled()
-    }
-
-    func sortCard(by areInIncreasingOrder: (LuckyCard, LuckyCard) -> Bool) {
+// MARK: Basic Feature
+extension LuckyCardDeck {
+    func sort(by areInIncreasingOrder: (LuckyCard, LuckyCard) -> Bool) {
         cards.sort(by: areInIncreasingOrder)
     }
-
-    func filterCard(_ isIncluded: (LuckyCard) -> Bool) {
+    
+    func filter(_ isIncluded: (LuckyCard) -> Bool) {
         cards = cards.filter(isIncluded)
     }
-
+    
     func popLastCard() -> LuckyCard? {
         return cards.popLast()
     }
-
+    
     func popCards(number: Int) -> [LuckyCard]? {
         guard cards.count >= number else { return nil }
         var newCards = [LuckyCard]()
@@ -48,12 +43,23 @@ class LuckyCardDeck: CardDeckProtocol {
         }
         return newCards
     }
-
-    func pushNewCard(_ newCard: LuckyCard) {
+    
+    func push(newCard: LuckyCard) {
         cards.append(newCard)
     }
-
-    func pushCards(_ newCards: [LuckyCard]) {
+    
+    func push(newCards: [LuckyCard]) {
         cards.append(contentsOf: newCards)
+    }
+}
+
+// MARK: LuckyCardGame Feature
+extension LuckyCardDeck {
+    func createShuffledDeck() {
+        cards = LuckyCard.Animal.allCases.flatMap { animal in
+            LuckyCard.Number.allCases.map { number in
+                return LuckyCard(animal: animal, number: number)
+            }
+        }.shuffled()
     }
 }
