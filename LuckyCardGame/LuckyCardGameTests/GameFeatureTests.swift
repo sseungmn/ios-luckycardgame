@@ -117,4 +117,89 @@ final class GameFeatureTests: XCTestCase {
             XCTAssertLessThanOrEqual(cards[leftIndex], cards[leftIndex+1])
         }
     }
+
+    // MARK: PlayerHasThreeSameCard
+    func test_본인이3장의같은카드를갖고있을때_해당메서드가잘동작하나() {
+        // given
+        let playersDeck = [
+            LuckyCardDeck(cards: [
+                LuckyCard(animal: .Cat, number: .one),
+                LuckyCard(animal: .Cow, number: .one),
+                LuckyCard(animal: .Dog, number: .one),
+            ]),
+            LuckyCardDeck(cards: [
+                LuckyCard(animal: .Cat, number: .two),
+                LuckyCard(animal: .Cow, number: .three),
+                LuckyCard(animal: .Dog, number: .four),
+            ]),
+        ]
+        let dealerDeck = LuckyCardDeck(cards: [
+            LuckyCard(animal: .Dog, number: .ten),
+            LuckyCard(animal: .Cat, number: .eleven),
+            LuckyCard(animal: .Cow, number: .ten),
+        ])
+        let sut = LuckyCardGame(playersDeck: playersDeck, dealerDeck: dealerDeck)
+
+        // when
+        let result = sut.checkPlayerHasThreeSameCard()
+
+        // then
+        XCTAssertTrue(result)
+    }
+
+    func test_딜러가3장의같은카드를갖고있을때_해당메서드가잘동작하나() {
+        // given
+        let playersDeck = [
+            LuckyCardDeck(cards: [
+                LuckyCard(animal: .Dog, number: .ten),
+                LuckyCard(animal: .Cat, number: .eleven),
+                LuckyCard(animal: .Cow, number: .ten),
+            ]),
+            LuckyCardDeck(cards: [
+                LuckyCard(animal: .Cat, number: .two),
+                LuckyCard(animal: .Cow, number: .three),
+                LuckyCard(animal: .Dog, number: .four),
+            ]),
+        ]
+        let dealerDeck = LuckyCardDeck(cards: [
+            LuckyCard(animal: .Cat, number: .one),
+            LuckyCard(animal: .Cow, number: .one),
+            LuckyCard(animal: .Dog, number: .one),
+        ])
+        let sut = LuckyCardGame(playersDeck: playersDeck, dealerDeck: dealerDeck)
+
+        // when
+        let result = sut.checkPlayerHasThreeSameCard()
+
+        // then
+        XCTAssertFalse(result)
+    }
+
+    func test_아무도3장의같은카드를갖고있지않을때_해당메서드가잘동작하나() {
+        // given
+        let playersDeck = [
+            LuckyCardDeck(cards: [
+                LuckyCard(animal: .Cat, number: .one),
+                LuckyCard(animal: .Cow, number: .two),
+                LuckyCard(animal: .Dog, number: .two),
+            ]),
+            LuckyCardDeck(cards: [
+                LuckyCard(animal: .Cat, number: .two),
+                LuckyCard(animal: .Cow, number: .three),
+                LuckyCard(animal: .Dog, number: .four),
+            ])
+        ]
+        let dealerDeck = LuckyCardDeck(cards: [
+            LuckyCard(animal: .Dog, number: .two),
+            LuckyCard(animal: .Cat, number: .twelve),
+            LuckyCard(animal: .Cow, number: .ten),
+        ])
+        let sut = LuckyCardGame(playersDeck: playersDeck, dealerDeck: dealerDeck)
+
+        // when
+        let result = sut.checkPlayerHasThreeSameCard()
+
+        // then
+        XCTAssertFalse(result)
+    }
 }
