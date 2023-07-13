@@ -43,11 +43,22 @@ final class LuckyCard: CardProtocol {
 
     private let animal: Animal
     private let number: Number
-    var isFront: Bool = false
+    private(set) var isFront: Bool = false
 
     init(animal: Animal, number: Number) {
         self.animal = animal
         self.number = number
+    }
+}
+
+// MARK: API
+extension LuckyCard {
+    var value: Int {
+        return number.rawValue
+    }
+    
+    func filp() {
+        isFront.toggle()
     }
 }
 

@@ -45,11 +45,18 @@ struct LuckyCardGame: CardGameProtocol {
         for index in 0..<option.playerCount.rawValue {
             guard let cards = dealerDeck.popCards(number: option.playerCount.playerCardCount) else { fatalError("잘못된 카드 분배입니다.") }
 
-            if index == 0 { cards.forEach { $0.isFront = true } }
+            if index == 0 { cards.forEach { $0.filp() } }
             playersDeck[index].push(newCards: cards)
         }
     }
 
+    init(playersDeck: [LuckyCardDeck], dealerDeck: LuckyCardDeck) {
+        self.playersDeck = playersDeck
+        self.dealerDeck = dealerDeck
+    }
+}
+
+extension LuckyCardGame {
     func sortPlayersDeck() {
         for playerDeck in playersDeck {
             playerDeck.sort(by: <)

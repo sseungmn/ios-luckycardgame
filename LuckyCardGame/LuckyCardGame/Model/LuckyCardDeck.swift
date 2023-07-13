@@ -17,7 +17,15 @@ import Foundation
 class LuckyCardDeck: CardDeckProtocol {
     typealias CardType = LuckyCard
     
-    private(set) var cards: [LuckyCard] = []
+    private(set) var cards: [LuckyCard]
+
+    init(cards: [LuckyCard]) {
+        self.cards = cards
+    }
+
+    convenience init() {
+        self.init(cards: [])
+    }
 }
 
 // MARK: Basic Feature
